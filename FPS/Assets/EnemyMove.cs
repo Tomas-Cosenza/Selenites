@@ -57,4 +57,8 @@ public class EnemyMove : MonoBehaviour
             player.GetComponent<PlayerManager>().Hit(DMG, knocback);
         }
     }
+
+   
+
+
 }
