@@ -42,6 +42,7 @@ public class WeaponManager : MonoBehaviour
             EnemyMove enemyMove = hit.transform.GetComponent<EnemyMove>();
             hitConfirm.transform.position = hit.point/*transform.position + new Vector3(0,1,0)*/;
             hitConfirm.Play();
+            Debug.Log(hitConfirm.transform.position);
             
             if (enemyMove != null)
             {

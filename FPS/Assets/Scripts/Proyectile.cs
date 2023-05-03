@@ -8,7 +8,9 @@ public class Proyectile : MonoBehaviour
 
     [SerializeField] private float speed, DMG, knocback;
     [SerializeField] private PlayerManager pM;
+    [SerializeField] private Rotator rotator;
     private GameObject player;
+    private float lifetime = 5;
 
     private void Start()
     {
@@ -21,6 +23,15 @@ public class Proyectile : MonoBehaviour
     private void Update()
     {
         transform.position += transform.up * speed * Time.deltaTime;
+        lifetime -= 1* Time.deltaTime;
+        if (lifetime <= 0)
+        {
+            MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
+            mr.enabled = false;
+            rotator.RotSpeed = 0;
+
+            Invoke("DestroyProyectile", 1f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,12 +40,28 @@ public class Proyectile : MonoBehaviour
         {
             Debug.Log("hit");
             Destroy(gameObject);
-            pM.Hit(DMG,knocback);
+            pM.Hit(DMG,knocback,transform.position);
+
+        }
+        if (!other.CompareTag("Enemy"))
+        {
+            MeshRenderer mr= gameObject.GetComponent<MeshRenderer>();
+            mr.enabled = false;
+            speed = 0;
+            rotator.RotSpeed= 0;
+            Invoke("DestroyProyectile", 1f);
 
         }
     }
 
-
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+    
+    private void DestroyProyectile()
+    {
+        Destroy(gameObject);
+    }
 
 }

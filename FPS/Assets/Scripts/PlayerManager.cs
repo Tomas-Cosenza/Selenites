@@ -12,10 +12,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CanvasGroup hurtImage;
     public CharacterController controller;
 
-    public void Hit(float damage, float knockback) 
+    public void Hit(float damage, float knockback, Vector3 knockPos) 
     {
         hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
-        transform.DOMove(transform.position - transform.forward * knockback, .5f);
+        knockPos = new Vector3(knockPos.x,0,knockPos.z);
+        Vector3 Self = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 Displacement = Vector3.Normalize((Self - knockPos))*knockback;
+        transform.DOMove( transform.position + Displacement , .5f);
         health -= damage;
         float actualHealth = Mathf.InverseLerp(0, 100, health);
         slider.DOValue(actualHealth, 0.2f);
@@ -33,7 +36,6 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         DOTween.Init();
-
     }
     
 

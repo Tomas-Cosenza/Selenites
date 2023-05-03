@@ -50,13 +50,6 @@ public class EnemyMove : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject == player)
-        {
-            player.GetComponent<PlayerManager>().Hit(DMG, knocback);
-        }
-    }
 
    
 

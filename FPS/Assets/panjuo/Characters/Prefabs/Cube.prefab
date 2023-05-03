@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 5276097442622272117}
   - component: {fileID: 3170618224480330557}
   - component: {fileID: 2011262828}
+  - component: {fileID: 118748748}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +212,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   radius: 5
+--- !u!114 &118748748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211123609315536591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8db2285a362724095e7b9954a1fa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProyectilePrefab: {fileID: 7062424430988767516, guid: 59c02dfe260208c4f9ef38e523442573,
+    type: 3}
+  radius: 6
+  firerate: 2
+  spawnPos: {fileID: 3526513633813773699}
 --- !u!1 &5607571132475557819
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3526513633813773699}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Spawn position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
