@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Hit(float damage, float knockback, Vector3 knockPos) 
     {
+        Debug.Log("HIT");
+
         hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
         knockPos = new Vector3(knockPos.x,0,knockPos.z);
         Vector3 Self = new Vector3(transform.position.x, 0, transform.position.z);

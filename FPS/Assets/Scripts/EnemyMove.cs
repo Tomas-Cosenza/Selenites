@@ -11,7 +11,7 @@ public class EnemyMove : MonoBehaviour
     public GameObject player;
     public GameManager gm;
     public Animator zombieanimator;
-    public float DMG = 15f,knocback, healt = 100, armor;
+    public float DMG = 15f, healt = 100, armor;
 
     public void Hit(float DMG)
     {
