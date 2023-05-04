@@ -29,7 +29,7 @@ public class Proyectile : MonoBehaviour
             MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
             mr.enabled = false;
             rotator.RotSpeed = 0;
-
+            speed = 0;
             Invoke("DestroyProyectile", 1f);
         }
     }
