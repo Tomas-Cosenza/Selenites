@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int enemiesAlive;
-    [SerializeField] private int round;
+    [SerializeField] private int enemyCap;
+    public int maxEnemies;
 
     [SerializeField] private GameObject[] enemySpawn;
 
@@ -24,22 +25,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemiesAlive <= 0)
-        {
-            round++;
-            NextWave(round);
-            roundNumber.text="round:" + round.ToString();
 
+        if (enemiesAlive < maxEnemies)
+        {
+            SpawnEnemies(maxEnemies);
         }
 
     }
 
-    public void NextWave(int round)
+    public void SpawnEnemies(int maxEnemies)
     {
-        for(var x = 0; x <= round;x++)
+        for(var x = enemiesAlive; x <= maxEnemies-1;x++)
         {
             GameObject spawnPoint = enemySpawn[Random.Range(0, enemySpawn.Length)];
-            GameObject enemySpawned = Instantiate(enemyPrefab[Random.Range(0,enemyPrefab.Length)], spawnPoint.transform.position, Quaternion.identity);
+            GameObject enemySpawned = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoint.transform.position, Quaternion.identity);
             enemySpawned.GetComponent<EnemyHurt>().gm = GetComponent<GameManager>();
             enemiesAlive++;
 
@@ -51,7 +50,6 @@ public class GameManager : MonoBehaviour
          
         Cursor.lockState= CursorLockMode.None;
         endGamePanel.SetActive(true);
-        roundsSurvived.text = round.ToString();
 
     }
 

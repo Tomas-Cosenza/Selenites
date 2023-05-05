@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sphere: {fileID: 5977719474301771442}
   lifeTime: 10
-  DMG: 1
+  DMG: 5
   knockback: 0.1
   timer: 0
   pulseRate: 1.2

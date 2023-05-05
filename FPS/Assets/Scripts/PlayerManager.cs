@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private float health = 100f, damage = 20f;
+    [SerializeField] private float maxHealth, health = 100f, damage = 20f;
     [SerializeField] private Slider slider, sliderBG;
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage;
@@ -14,8 +14,6 @@ public class PlayerManager : MonoBehaviour
 
     public void Hit(float damage, float knockback, Vector3 knockPos) 
     {
-        Debug.Log("HIT");
-
         hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
         knockPos = new Vector3(knockPos.x,0,knockPos.z);
         Vector3 Self = new Vector3(transform.position.x, 0, transform.position.z);
@@ -31,6 +29,16 @@ public class PlayerManager : MonoBehaviour
             gm.EndGame();
             //Time.timeScale = 0;
         }
+    }
+    public void Heal(float heal) 
+    {
+        hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
+       
+        health += heal;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        float actualHealth = Mathf.InverseLerp(0, 100, health);
+        slider.DOValue(actualHealth, 0.2f);
+        sliderBG.DOValue(actualHealth, 0.5f);
     }
 
 

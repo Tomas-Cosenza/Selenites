@@ -1608,7 +1608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gm: {fileID: 0}
-  zombieanimator: {fileID: 7544459490567584518}
 --- !u!195 &8764772405380788960
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1674,7 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  DMG: 15
+  DMG: 5
   knocback: 3
 --- !u!114 &-5945125288342640427
 MonoBehaviour:

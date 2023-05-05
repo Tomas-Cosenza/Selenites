@@ -22,7 +22,7 @@ public class EnemyHurt : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        gm = GetComponent<GameManager>();
+        //gm = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
