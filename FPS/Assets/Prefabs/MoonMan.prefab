@@ -1549,8 +1549,9 @@ GameObject:
   - component: {fileID: 3630666985849759411}
   - component: {fileID: 8124048420001931281}
   - component: {fileID: 6011369128616382239}
+  - component: {fileID: 7836578325865397707}
   m_Layer: 0
-  m_Name: Zombie 1
+  m_Name: MoonMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,9 +1610,6 @@ MonoBehaviour:
   player: {fileID: 0}
   gm: {fileID: 0}
   zombieanimator: {fileID: 7544459490567584518}
-  DMG: 5.43
-  healt: 100
-  armor: 0
 --- !u!195 &8764772405380788960
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1621,7 +1619,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7237887403474013486}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1678,12 +1676,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks: []
   firerate: 3.07
-  radius: 8.38
+  radius: 16.72
   timer: 0
   gravityclap: {fileID: 5977719474722340966, guid: 7704de41a4ef72e42b0201cbbe56bd9a,
     type: 3}
   gravityslap: {fileID: 7237887403474013486, guid: 3ead559ca09f308419e345121ad880f8,
     type: 3}
+--- !u!114 &7836578325865397707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237887403474013486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b84cb6ff66bfd4e894be75dbfb544b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  DMG: 15
+  health: 100
+  armor: 0
 --- !u!1 &7599627658468118477
 GameObject:
   m_ObjectHideFlags: 0

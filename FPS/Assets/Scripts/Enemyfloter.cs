@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemyfloter : MonoBehaviour
 {
     [SerializeField] private float speed, radius;
-
     private Transform player;
 
     // Start is called before the first frame update
@@ -13,6 +12,7 @@ public class Enemyfloter : MonoBehaviour
     {
         // Find the player object based on its tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     // Update is called once per frame
@@ -26,5 +26,9 @@ public class Enemyfloter : MonoBehaviour
             // Move towards the player
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
+        /*if(transform.position.y <= 12)
+        {
+            transform.Translate(transform.position+Vector3.up*speed);
+        }*/
     }
 }

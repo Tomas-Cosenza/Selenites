@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2102667860}
   - component: {fileID: 2102667863}
   - component: {fileID: 2102667862}
-  - component: {fileID: 2102667861}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2102667861
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102667859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &211123609315536591
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,8 +97,9 @@ GameObject:
   - component: {fileID: 3170618224480330557}
   - component: {fileID: 2011262828}
   - component: {fileID: 118748748}
+  - component: {fileID: -3027549711048902749}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: MoonFairy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  radius: 5
+  radius: 19.17
 --- !u!114 &118748748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,9 +213,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProyectilePrefab: {fileID: 7062424430988767516, guid: 59c02dfe260208c4f9ef38e523442573,
     type: 3}
-  radius: 6
+  radius: 21
   firerate: 2
   spawnPos: {fileID: 3526513633813773699}
+--- !u!114 &-3027549711048902749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211123609315536591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b84cb6ff66bfd4e894be75dbfb544b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  DMG: 15
+  health: 100
+  armor: 0
 --- !u!1 &5607571132475557819
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5607571132475557819}
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.64900005}
+  m_LocalPosition: {x: 0, y: 0, z: 1.082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

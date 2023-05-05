@@ -43,14 +43,14 @@ public class WeaponManager : MonoBehaviour
 
         if (Physics.Raycast(mainCam.transform.position , cameraOffset.transform.forward, out hit, range))
         {
-            //Debug.Log("hit");
-            EnemyMove enemyMove = hit.transform.GetComponent<EnemyMove>();
-            hitConfirm.transform.position = hit.point/*transform.position + new Vector3(0,1,0)*/;
+
+            EnemyHurt enemyHurt = hit.transform.GetComponent<EnemyHurt>();
+            hitConfirm.transform.position = hit.point;
             hitConfirm.Play();
             
-            if (enemyMove != null)
+            if (enemyHurt != null)
             {
-                enemyMove.Hit(DMG);
+                enemyHurt.Hit(DMG);
             }
         }
     }

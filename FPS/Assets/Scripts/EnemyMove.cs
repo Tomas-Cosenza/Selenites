@@ -10,20 +10,7 @@ public class EnemyMove : MonoBehaviour
 
     public GameObject player;
     public GameManager gm;
-    public Animator zombieanimator;
-    public float DMG = 15f, healt = 100, armor;
-
-    public void Hit(float DMG)
-    {
-        armor = Random.Range(0.2f, 0.5f);
-        healt -= DMG * armor;
-        if(healt<=0) 
-        {
-            gm.enemiesAlive--;
-            Destroy(gameObject);
-        }
-
-    }
+    //public Animator zombieanimator;
 
 
     // Start is called before the first frame update
@@ -37,7 +24,7 @@ public class EnemyMove : MonoBehaviour
     {
         GetComponent<NavMeshAgent>().destination = player.transform.position;
 
-        if (GetComponent<NavMeshAgent>().velocity.magnitude > 1)
+        /*if (GetComponent<NavMeshAgent>().velocity.magnitude > 1)
         {
             zombieanimator.SetBool("isrunning", true);
         }
@@ -45,7 +32,7 @@ public class EnemyMove : MonoBehaviour
         {
             zombieanimator.SetBool("isrunning", false);
 
-        }
+        }*/
 
         
     }

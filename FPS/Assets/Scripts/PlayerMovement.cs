@@ -16,12 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 2f;
     public float jumpModifier = 2f;
+    [SerializeField] private int extraJumps;
+    private int jumps;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -31,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2;
+        }
+        if (isGrounded == true) 
+        {
+            jumps = 1;
         }
 
 
@@ -42,9 +44,10 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        if (isGrounded && Input.GetButtonDown("Jump") ) 
+        if (Input.GetButtonDown("Jump") && jumps !=0 ) 
         {
             Jump();
+            jumps--;
         }
 
     }

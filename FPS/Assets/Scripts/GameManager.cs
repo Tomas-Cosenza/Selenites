@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject[] enemySpawn;
 
-    [SerializeField] private GameObject enemyPrefab, endGamePanel;
+    [SerializeField] private GameObject endGamePanel;
+    [SerializeField] private GameObject[] enemyPrefab;
 
     [SerializeField] private Text roundNumber,roundsSurvived;
     // Start is called before the first frame update
@@ -38,8 +39,8 @@ public class GameManager : MonoBehaviour
         for(var x = 0; x <= round;x++)
         {
             GameObject spawnPoint = enemySpawn[Random.Range(0, enemySpawn.Length)];
-            GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-            enemySpawned.GetComponent<EnemyMove>().gm = GetComponent<GameManager>();
+            GameObject enemySpawned = Instantiate(enemyPrefab[Random.Range(0,enemyPrefab.Length)], spawnPoint.transform.position, Quaternion.identity);
+            enemySpawned.GetComponent<EnemyHurt>().gm = GetComponent<GameManager>();
             enemiesAlive++;
 
         }
