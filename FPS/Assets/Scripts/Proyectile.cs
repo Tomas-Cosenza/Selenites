@@ -10,6 +10,7 @@ public class Proyectile : MonoBehaviour
     [SerializeField] private PlayerManager pM;
     [SerializeField] private Rotator rotator;
     [SerializeField] private MeshRenderer mr;
+    [SerializeField] private SphereCollider sc;
     private GameObject player;
 
     private void Start()
@@ -17,6 +18,7 @@ public class Proyectile : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         pM = player.GetComponent<PlayerManager>();
+        sc = GetComponent<SphereCollider>();
     }
 
 
@@ -27,9 +29,10 @@ public class Proyectile : MonoBehaviour
         if (lifetime <= 0)
         {
             mr.enabled = false;
+            sc.enabled = false;
             rotator.RotSpeed = 0;
             speed = 0;
-            Invoke("DestroyProyectile", 1f);
+            Invoke("DestroyProyectile", 1);
         }
     }
 
@@ -38,6 +41,8 @@ public class Proyectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("hit");
+            sc.enabled = false;
+            mr.enabled = false;
             Destroy(gameObject);
             pM.Hit(DMG,knocback,transform.position);
 
@@ -45,6 +50,7 @@ public class Proyectile : MonoBehaviour
         if (!other.CompareTag("Enemy"))
         {
             mr.enabled = false;
+            sc.enabled = false;
             speed = 0;
             rotator.RotSpeed= 0;
             Invoke("DestroyProyectile", 1f);
@@ -52,10 +58,17 @@ public class Proyectile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
-    }
+        if (!collision.CompareTag("Enemy"))
+        {
+            mr.enabled = false;
+            speed = 0;
+            rotator.RotSpeed = 0;
+            Invoke("DestroyProyectile", 1f);
+
+        }
+    }*/
     
     private void DestroyProyectile()
     {
