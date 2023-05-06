@@ -6,11 +6,11 @@ using UnityEngine;
 public class Proyectile : MonoBehaviour
 {
 
-    [SerializeField] private float speed, DMG, knocback;
+    [SerializeField] private float speed, DMG, knocback, lifetime = 5;
     [SerializeField] private PlayerManager pM;
     [SerializeField] private Rotator rotator;
+    [SerializeField] private MeshRenderer mr;
     private GameObject player;
-    private float lifetime = 5;
 
     private void Start()
     {
@@ -26,7 +26,6 @@ public class Proyectile : MonoBehaviour
         lifetime -= 1* Time.deltaTime;
         if (lifetime <= 0)
         {
-            MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
             mr.enabled = false;
             rotator.RotSpeed = 0;
             speed = 0;
@@ -45,7 +44,6 @@ public class Proyectile : MonoBehaviour
         }
         if (!other.CompareTag("Enemy"))
         {
-            MeshRenderer mr= gameObject.GetComponent<MeshRenderer>();
             mr.enabled = false;
             speed = 0;
             rotator.RotSpeed= 0;

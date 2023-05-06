@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
     public CharacterController controller;
-    Vector3 velocity;
-    public float gravity = -9.81f;
-
-    public bool isGrounded;
-
-    public float groundDistance;
-    public Transform groundCheck;
-    public LayerMask groundMask;
-    public float jumpHeight = 2f;
-    public float jumpModifier = 2f;
+    [SerializeField] private float speed, gravity = -9.81f, groundDistance, jumpModifier = 2f, jumpHeight = 2f;
     [SerializeField] private int extraJumps;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] public Transform groundCheck;
+    [SerializeField] public LayerMask groundMask;
     private int jumps;
-
-   
+    private Vector3 velocity;
 
     // Update is called once per frame
     void Update()

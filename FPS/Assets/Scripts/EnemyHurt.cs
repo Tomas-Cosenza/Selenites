@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyHurt : MonoBehaviour
 {
-
-    public GameManager gm;
-    public float DMG = 15f, health = 100, armor;
+    [SerializeField] private float health = 100, armor;
+    [HideInInspector] public EnemySpawner es;
 
     public void Hit(float DMG)
     {
@@ -14,20 +13,9 @@ public class EnemyHurt : MonoBehaviour
         health -= DMG * armor;
         if (health <= 0)
         {
-            gm.enemiesAlive--;
+            es.enemiesAlive--;
             Destroy(gameObject);
         }
 
-    }
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //gm = GetComponent<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
