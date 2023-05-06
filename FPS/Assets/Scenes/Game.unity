@@ -1408,23 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931a21859f966b047834066eb9c7fd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesAlive: 0
-  enemyCap: 1
-  maxEnemies: 20
-  enemySpawn:
-  - {fileID: 765429846}
-  - {fileID: 1911561170}
-  - {fileID: 185726291}
-  - {fileID: 1145245204}
-  - {fileID: 1405572628}
-  - {fileID: 2031214191}
-  - {fileID: 2050260902}
-  - {fileID: 1210154707}
   endGamePanel: {fileID: 1880629623}
-  enemyPrefab:
-  - {fileID: 7237887403474013486, guid: e75ad5b2b3cd9f74a8288335fb2224f7, type: 3}
-  - {fileID: 7237887403474013486, guid: b6ab92a5d7a1af342ba75feba8997b1c, type: 3}
-  - {fileID: 211123609315536591, guid: b8f9ad7319b8d284c902bb3c6d3de267, type: 3}
   roundNumber: {fileID: 1593604787}
   roundsSurvived: {fileID: 1516798782}
 --- !u!4 &620485641
@@ -3072,8 +3056,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1149307912}
   - component: {fileID: 1149307913}
+  - component: {fileID: 1149307915}
+  - component: {fileID: 1149307914}
+  - component: {fileID: 1149307916}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Ground Enemies Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3114,6 +3101,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2355dd4cb195e0341972147cb8d4c100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1149307914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149307911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46949906bda082d4e8bc39c17917103d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawn:
+  - {fileID: 765429846}
+  - {fileID: 1911561170}
+  - {fileID: 185726291}
+  - {fileID: 1405572628}
+  - {fileID: 1145245204}
+  - {fileID: 2031214191}
+  - {fileID: 2050260902}
+  - {fileID: 1210154707}
+  spawnOffset: {x: 0, y: 0, z: 0}
+  enemyPrefab: {fileID: 7237887403474013486, guid: e75ad5b2b3cd9f74a8288335fb2224f7,
+    type: 3}
+  maxEnemies: 2
+  enemiesAlive: 0
+  enemyToSpawn: 1
+--- !u!114 &1149307915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149307911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46949906bda082d4e8bc39c17917103d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawn:
+  - {fileID: 765429846}
+  - {fileID: 1911561170}
+  - {fileID: 185726291}
+  - {fileID: 1405572628}
+  - {fileID: 1145245204}
+  - {fileID: 2031214191}
+  - {fileID: 2050260902}
+  - {fileID: 1210154707}
+  spawnOffset: {x: 0, y: 0, z: 0}
+  enemyPrefab: {fileID: 7237887403474013486, guid: b6ab92a5d7a1af342ba75feba8997b1c,
+    type: 3}
+  maxEnemies: 2
+  enemiesAlive: 0
+  enemyToSpawn: 0
+--- !u!114 &1149307916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149307911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46949906bda082d4e8bc39c17917103d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawn:
+  - {fileID: 765429846}
+  - {fileID: 1911561170}
+  - {fileID: 185726291}
+  - {fileID: 1405572628}
+  - {fileID: 1145245204}
+  - {fileID: 2031214191}
+  - {fileID: 2050260902}
+  - {fileID: 1210154707}
+  spawnOffset: {x: 0, y: 7.24, z: 0}
+  enemyPrefab: {fileID: 211123609315536591, guid: b8f9ad7319b8d284c902bb3c6d3de267,
+    type: 3}
+  maxEnemies: 2
+  enemiesAlive: 0
+  enemyToSpawn: 2
 --- !u!1 &1158974020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,18 +5249,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5a26ae154cb134780f5340b9e5d99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
   controller: {fileID: 3672609181223259205}
+  speed: 6
   gravity: -9.81
-  isGrounded: 0
   groundDistance: 0.4
+  jumpModifier: 1
+  jumpHeight: 3
+  extraJumps: 1
+  isGrounded: 0
   groundCheck: {fileID: 1767013401}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpHeight: 3
-  jumpModifier: 1
-  extraJumps: 1
 --- !u!114 &3672609181223259207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5657,7 +5725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c56d20d608ada4d9811733d9eedbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
+  mouseSensitivity: 700
   xRotation: 0
   yRotation: 0
   smooth: 1.52

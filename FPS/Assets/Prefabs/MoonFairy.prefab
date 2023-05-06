@@ -218,10 +218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b84cb6ff66bfd4e894be75dbfb544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
-  DMG: 10
+  enemyIndex: 2
   health: 100
   armor: 0
+  es: {fileID: 0}
 --- !u!54 &4243277726532662212
 Rigidbody:
   m_ObjectHideFlags: 0

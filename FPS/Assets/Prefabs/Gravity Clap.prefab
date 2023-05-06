@@ -148,7 +148,7 @@ MonoBehaviour:
   DMG: 5
   knockback: 0.1
   timer: 0
-  pulseRate: 1.2
+  pulseRate: 3
 --- !u!135 &5977719474722340967
 SphereCollider:
   m_ObjectHideFlags: 0
