@@ -8,9 +8,9 @@ public class GravityClapBehavior : MonoBehaviour
     [SerializeField] private float lifeTime = 10;
     private GameObject player;
     private PlayerManager pm;
-    private Collider aoe;
-
-    [SerializeField] private float DMG, knockback,timer,pulseRate;
+    private Collider aoe; 
+    [SerializeField] private float DMG, pull,timer, knockDuration, pulseRate;
+    [SerializeField] private bool knock;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +52,6 @@ public class GravityClapBehavior : MonoBehaviour
     }
     private void Pulse()
     {
-        pm.Hit(DMG, knockback, transform.position);
+        pm.Hit(DMG, knock, -pull, knockDuration, transform.position);
     }
 }

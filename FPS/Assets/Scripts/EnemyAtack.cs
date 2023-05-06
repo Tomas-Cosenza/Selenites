@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyAtack : MonoBehaviour
 {
+    [SerializeField] private float DMG = 15f, knocback, knockDuration;
+    [SerializeField] private bool knock;
     private GameObject player;
-    public GameManager gm;
-    public float DMG = 15f, knocback;
+    //public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,6 @@ public class EnemyAtack : MonoBehaviour
 
     private void Attack()
     {
-        player.GetComponent<PlayerManager>().Hit(DMG, knocback, transform.position);
+        player.GetComponent<PlayerManager>().Hit(DMG, knock, knocback, knockDuration, transform.position);
     }
 }

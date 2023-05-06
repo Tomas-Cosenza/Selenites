@@ -15,7 +15,7 @@ public class EnemyHurt : MonoBehaviour
         health -= DMG * armor;
         if (health <= 0)
         {
-            es.enemyToSpawn = enemyIndex;
+            es.enemyIndex = enemyIndex;
             es.enemiesAlive--;
             Destroy(gameObject);
         }

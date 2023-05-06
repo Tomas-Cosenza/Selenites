@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8db2285a362724095e7b9954a1fa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProyectilePrefab: {fileID: 7062424430988767516, guid: 59c02dfe260208c4f9ef38e523442573,
+  ProjectilePrefab: {fileID: 7062424430988767516, guid: 59c02dfe260208c4f9ef38e523442573,
     type: 3}
   radius: 21
   firerate: 2

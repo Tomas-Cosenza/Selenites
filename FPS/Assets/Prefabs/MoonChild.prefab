@@ -750,9 +750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a967a4026a914286879789759c525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
   DMG: 5
   knocback: 3
+  knockDuration: 0.5
+  knock: 1
 --- !u!114 &5283964485306242687
 MonoBehaviour:
   m_ObjectHideFlags: 0

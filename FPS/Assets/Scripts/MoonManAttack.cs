@@ -47,6 +47,5 @@ public class MoonManAttack : MonoBehaviour
         timer = firerate;
         string attackUsed = attacks[Random.Range(0, attacks.Length)];
         Invoke(attackUsed,0);
-        Debug.Log(attackUsed);
     }
 }

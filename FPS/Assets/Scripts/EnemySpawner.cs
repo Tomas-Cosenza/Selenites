@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int maxEnemies;
     public int enemiesAlive;
-    public int enemyToSpawn;
+    public int enemyIndex;
     EnemySpawner[] enemySpawners;
 
 
@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesAlive < maxEnemies)
         {
             
-            SpawnEnemies(maxEnemies,enemyToSpawn);
+            SpawnEnemies(maxEnemies,enemyIndex);
         }
 
     }

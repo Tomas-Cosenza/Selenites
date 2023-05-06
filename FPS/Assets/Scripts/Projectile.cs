@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Proyectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
 
-    [SerializeField] private float speed, DMG, knocback, lifetime = 5;
-    [SerializeField] private PlayerManager pM;
     [SerializeField] private Rotator rotator;
     [SerializeField] private MeshRenderer mr;
     [SerializeField] private SphereCollider sc;
+    [SerializeField] private float speed, DMG, knocback, knockDuration, lifetime = 5;
+    [SerializeField] private bool knock;
     private GameObject player;
+    private PlayerManager pM;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class Proyectile : MonoBehaviour
             sc.enabled = false;
             rotator.RotSpeed = 0;
             speed = 0;
-            Invoke("DestroyProyectile", 1);
+            Invoke("DestroyProjectile", 1);
         }
     }
 
@@ -40,11 +41,10 @@ public class Proyectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("hit");
             sc.enabled = false;
             mr.enabled = false;
             Destroy(gameObject);
-            pM.Hit(DMG,knocback,transform.position);
+            pM.Hit(DMG, knock, knocback, knockDuration, transform.position);
 
         }
         if (!other.CompareTag("Enemy"))
@@ -53,7 +53,7 @@ public class Proyectile : MonoBehaviour
             sc.enabled = false;
             speed = 0;
             rotator.RotSpeed= 0;
-            Invoke("DestroyProyectile", 1f);
+            Invoke("DestroyProjectile", 1f);
 
         }
     }
@@ -70,7 +70,7 @@ public class Proyectile : MonoBehaviour
         }
     }*/
     
-    private void DestroyProyectile()
+    private void DestroyProjectile()
     {
         Destroy(gameObject);
     }

@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 8124048420001931281}
   - component: {fileID: 7612943438988292985}
   m_Layer: 0
-  m_Name: Gravity Slap Proyectile
+  m_Name: Gravity Slap Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5016,3 +5016,5 @@ MonoBehaviour:
   lifeTime: 10
   DMG: 10
   knockback: 3
+  knockDuration: 0.5
+  knock: 1

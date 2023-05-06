@@ -146,9 +146,11 @@ MonoBehaviour:
   Sphere: {fileID: 5977719474301771442}
   lifeTime: 10
   DMG: 5
-  knockback: 0.1
+  pull: 2.95
   timer: 0
+  knockDuration: 0.2
   pulseRate: 3
+  knock: 1
 --- !u!135 &5977719474722340967
 SphereCollider:
   m_ObjectHideFlags: 0

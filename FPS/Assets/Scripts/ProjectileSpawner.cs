@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProyectileSpawner : MonoBehaviour
+public class ProjectileSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject ProyectilePrefab;
+    [SerializeField] private GameObject ProjectilePrefab;
     [SerializeField] private float radius, firerate;
     [SerializeField] private Transform spawnPos;
     private Transform player;
     private float timer;
 
-    public void SpawnProyectile()
+    public void SpawnProjectile()
     {
-        Instantiate(ProyectilePrefab, spawnPos.position, spawnPos.rotation);
+        Instantiate(ProjectilePrefab, spawnPos.position, spawnPos.rotation);
 
         timer = firerate;
 
@@ -32,7 +32,7 @@ public class ProyectileSpawner : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
         if (distance <= radius   &&  timer <= 0 )
         {
-            SpawnProyectile();
+            SpawnProjectile();
         }
     }
 }
