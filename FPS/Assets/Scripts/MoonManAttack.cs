@@ -8,7 +8,8 @@ public class MoonManAttack : MonoBehaviour
     public float firerate = 3;
     [SerializeField] private float radius = 5f, timer ;
     private GameObject player;
-    [SerializeField] private GameObject gravityclap, gravityslap;
+    [SerializeField] private Transform gravityClapSpawnPoint, gravitySlapSpawnPoint;
+    [SerializeField] private GameObject gravityClap, gravitySlap;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +32,14 @@ public class MoonManAttack : MonoBehaviour
     public void GravityClap() 
     {
 
-        GameObject.Instantiate(gravityclap, transform.position, Quaternion.identity);
+        GameObject.Instantiate(gravityClap, gravityClapSpawnPoint.position, Quaternion.identity);
     
     }
 
     public void GravitySlap()
     {
 
-        GameObject.Instantiate(gravityslap, transform.position, Quaternion.identity);
+        GameObject.Instantiate(gravitySlap, gravitySlapSpawnPoint.position, Quaternion.identity);
 
     }
 

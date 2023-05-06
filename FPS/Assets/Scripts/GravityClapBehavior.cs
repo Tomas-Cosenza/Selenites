@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GravityClapBehavior : MonoBehaviour
 {
+    [SerializeField] private ParticleSystemForceField psf;
     [SerializeField]private GameObject Sphere;
     [SerializeField] private float lifeTime = 10;
     private GameObject player;
@@ -32,6 +33,7 @@ public class GravityClapBehavior : MonoBehaviour
         }
         if (timer <= 0)
         {
+            psf.enabled = true;
             aoe.enabled = true;
             Sphere.SetActive(true);
             Invoke("DeactivateAoE", .5f);
@@ -47,6 +49,8 @@ public class GravityClapBehavior : MonoBehaviour
     }
     private void DeactivateAoE()
     {
+
+        psf.enabled = false;
         aoe.enabled = false;
         Sphere.SetActive(false);
     }
