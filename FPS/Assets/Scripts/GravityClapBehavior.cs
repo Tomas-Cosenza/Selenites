@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GravityClapBehavior : MonoBehaviour
 {
     [SerializeField] private ParticleSystemForceField psf;
     [SerializeField]private GameObject Sphere;
-    [SerializeField] private float lifeTime = 10;
+    [SerializeField] private float lifeTime = 10, DMG, pull, timer, knockDuration, pulseRate;
+    [SerializeField] private bool knock;
+    [SerializeField] private Material areaMat;
     private GameObject player;
     private PlayerManager pm;
-    private Collider aoe; 
-    [SerializeField] private float DMG, pull,timer, knockDuration, pulseRate;
-    [SerializeField] private bool knock;
+    private Collider aoe;
+    private float fade = .68f;
     // Start is called before the first frame update
     void Start()
     {
+        DOTween.Init();
         player = GameObject.FindGameObjectWithTag("Player");
         pm = player.GetComponent<PlayerManager>();
         aoe = GetComponent<Collider>();
@@ -24,6 +27,8 @@ public class GravityClapBehavior : MonoBehaviour
     void Update()
     {
 
+        areaMat.SetFloat("_Smoke_fade", fade);
+        
         lifeTime -= 1 * Time.deltaTime;
         timer -= 1 * Time.deltaTime;
 
@@ -33,9 +38,10 @@ public class GravityClapBehavior : MonoBehaviour
         }
         if (timer <= 0)
         {
+            DOTween.To(() => fade, x => fade = x, 0f, .2f).SetEase(Ease.OutQuint);
             psf.enabled = true;
             aoe.enabled = true;
-            Sphere.SetActive(true);
+            //Sphere.SetActive(true);
             Invoke("DeactivateAoE", .5f);
             timer = pulseRate;
         }
@@ -50,9 +56,10 @@ public class GravityClapBehavior : MonoBehaviour
     private void DeactivateAoE()
     {
 
+        DOTween.To(() => fade, x => fade = x, .68f, .5f).SetEase(Ease.OutQuint);
         psf.enabled = false;
         aoe.enabled = false;
-        Sphere.SetActive(false);
+        //Sphere.SetActive(false);
     }
     private void Pulse()
     {
