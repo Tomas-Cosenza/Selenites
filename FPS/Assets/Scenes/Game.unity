@@ -3565,6 +3565,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitConfirm
       objectReference: {fileID: 0}
+    - target: {fileID: 288613928910089334, guid: d4c7030c5322865489f22292b6bb15aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f63c77cee4a1af418d9a06a170de4dc, type: 2}
+    - target: {fileID: 288613928910089334, guid: d4c7030c5322865489f22292b6bb15aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f63c77cee4a1af418d9a06a170de4dc, type: 2}
     - target: {fileID: 288613928910089335, guid: d4c7030c5322865489f22292b6bb15aa,
         type: 3}
       propertyPath: m_RootOrder

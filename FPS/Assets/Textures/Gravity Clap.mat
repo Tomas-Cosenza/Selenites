@@ -59,7 +59,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: -1
     - _Smoke_Scroll_Speed: 0.03
-    - _Smoke_fade: 0.68
+    - _Smoke_fade: 0.67999846
     m_Colors:
     - _Smoke_color: {r: 2.3946967, g: 0.8883552, b: 7.3772106, a: 0}
   m_BuildTextureStacks: []
