@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 5720355763750231559}
   - component: {fileID: 2199280932394211899}
   - component: {fileID: 5283964485306242687}
+  - component: {fileID: 4657196104322589547}
   m_Layer: 0
   m_Name: MoonChild
   m_TagString: Untagged
@@ -767,9 +768,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyIndex: 1
-  health: 100
+  health: 15
   armor: 0
   es: {fileID: 0}
+--- !u!114 &4657196104322589547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125192230692268072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1979d9b666d3b45998756fa98156e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurt: {fileID: 0}
 --- !u!1 &6836997453953835336
 GameObject:
   m_ObjectHideFlags: 0

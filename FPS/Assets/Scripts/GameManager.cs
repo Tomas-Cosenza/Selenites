@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject endGamePanel;
     [SerializeField] private Text roundNumber,roundsSurvived;    
+    public int maxBeacons, beaconsClaimed;    
 
     public void EndGame()
     {
@@ -22,6 +23,21 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale= 1;
+    }
+
+    public void BeaconCounter()
+    {
+        beaconsClaimed++;
+        if(beaconsClaimed >= maxBeacons)
+        {
+            Win();
+        }
+    }
+
+    public void Win()
+    {
+        Debug.Log("you won buddy");
+        Time.timeScale=0;
     }
 
 }

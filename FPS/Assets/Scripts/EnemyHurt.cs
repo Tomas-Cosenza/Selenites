@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHurt : MonoBehaviour
 {
 
-    [SerializeField] private int enemyIndex;
     [SerializeField] private float health = 100, armor;
     [HideInInspector] public EnemySpawner es;
 
@@ -15,7 +14,6 @@ public class EnemyHurt : MonoBehaviour
         health -= DMG * armor;
         if (health <= 0)
         {
-            es.enemyIndex = enemyIndex;
             es.enemiesAlive--;
             Destroy(gameObject);
         }

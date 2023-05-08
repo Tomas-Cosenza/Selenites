@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
             pM.Hit(DMG, knock, knocback, knockDuration, transform.position);
 
         }
-        if (!other.CompareTag("Enemy"))
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Enemyspawner") && !other.CompareTag("Beacon"))
         {
             mr.enabled = false;
             sc.enabled = false;

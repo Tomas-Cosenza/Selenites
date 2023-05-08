@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Enemyspawner
+  - Beacon
   layers:
   - Default
   - TransparentFX
