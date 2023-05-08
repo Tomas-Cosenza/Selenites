@@ -2298,7 +2298,7 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 0, z: 0}
   enemyPrefab: {fileID: 6125192230692268072, guid: e75ad5b2b3cd9f74a8288335fb2224f7,
     type: 3}
-  maxEnemies: 2
+  maxEnemies: 1
   enemiesAlive: 0
   enemyIndex: 1
 --- !u!114 &1149307915
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 7.24, z: 0}
   enemyPrefab: {fileID: 211123609315536591, guid: b8f9ad7319b8d284c902bb3c6d3de267,
     type: 3}
-  maxEnemies: 2
+  maxEnemies: 6
   enemiesAlive: 0
   enemyIndex: 2
 --- !u!1 &1210154707
@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c56d20d608ada4d9811733d9eedbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 700
+  mouseSensitivity: 1500
   xRotation: 0
   yRotation: 0
   smooth: 1.52

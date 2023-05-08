@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemyfloter : MonoBehaviour
 {
-    [SerializeField] private float speed, radius, height, lift;
+    [SerializeField] private float speed, radius, height, lift,peerspeed;
     private Transform player;
+    [SerializeField] private BoxCollider checkpeer ;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -24,13 +26,12 @@ public class Enemyfloter : MonoBehaviour
         transform.LookAt(player.position);
         // Check if the player is within the radius
         float distance = Vector3.Distance(transform.position, player.position);
+
         if (transform.position.y <= height) 
         {
             rb.AddForce(new Vector3(0, 1, 0) * lift*Time.deltaTime, ForceMode.VelocityChange);
         }
-        
-        
-        
+
         if (distance > radius)
         {
             // Move towards the player
@@ -42,6 +43,25 @@ public class Enemyfloter : MonoBehaviour
         {
             transform.Translate(transform.position+Vector3.up*speed);
         }*/
+
+        
+
     }
+
     //Vector3 MoveDir = Vector3.Normalize(transform.position - player.position) * -speed * Time.deltaTime;
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.CompareTag("Enemy"))
+        {
+            Vector3 directionPeer = Vector3.Normalize(transform.position - other.transform.position);
+            Debug.Log("caca");
+            rb.AddForce(directionPeer * peerspeed * Time.deltaTime, ForceMode.Force);
+        }
+    }
+
+
+
 }
+
+
