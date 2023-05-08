@@ -6,14 +6,14 @@ using DG.Tweening;
 public class GravityClapBehavior : MonoBehaviour
 {
     [SerializeField] private ParticleSystemForceField psf;
-    [SerializeField]private GameObject Sphere;
+    [SerializeField]private GameObject groundShatter;
     [SerializeField] private float lifeTime = 10, DMG, pull, timer, knockDuration, pulseRate;
     [SerializeField] private bool knock;
     [SerializeField] private Material areaMat;
-    private GameObject player;
+    private GameObject player, destroyGroundShatter;
     private PlayerManager pm;
     private Collider aoe;
-    private float fade = .68f;
+    private float fade = .74f;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +38,10 @@ public class GravityClapBehavior : MonoBehaviour
         }
         if (timer <= 0)
         {
-            DOTween.To(() => fade, x => fade = x, 0f, .2f).SetEase(Ease.OutQuint);
+            DOTween.To(() => fade, x => fade = x, 0f, 1f)/*.SetEase(Ease.OutQuint)*/;
             psf.enabled = true;
             aoe.enabled = true;
-            //Sphere.SetActive(true);
+            destroyGroundShatter = Instantiate(groundShatter, transform.position- new Vector3(0,3f,0), Quaternion.identity);
             Invoke("DeactivateAoE", .5f);
             timer = pulseRate;
         }
@@ -56,7 +56,8 @@ public class GravityClapBehavior : MonoBehaviour
     private void DeactivateAoE()
     {
 
-        DOTween.To(() => fade, x => fade = x, .68f, .5f).SetEase(Ease.OutQuint);
+        DOTween.To(() => fade, x => fade = x, .74f, 1f)/*.SetEase(Ease.OutQuint)*/;
+        Destroy(destroyGroundShatter,6);
         psf.enabled = false;
         aoe.enabled = false;
         //Sphere.SetActive(false);
