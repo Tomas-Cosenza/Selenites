@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: -3027549711048902749}
   - component: {fileID: 4243277726532662212}
   - component: {fileID: 5900772743272511715}
-  - component: {fileID: 923982426052960028}
   m_Layer: 0
   m_Name: MoonFairy
   m_TagString: Enemy
@@ -222,7 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b84cb6ff66bfd4e894be75dbfb544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyIndex: 2
   health: 25
   armor: 0
   es: {fileID: 0}
@@ -255,19 +253,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &923982426052960028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211123609315536591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac1979d9b666d3b45998756fa98156e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hurt: {fileID: 0}
 --- !u!1 &2014822946908637199
 GameObject:
   m_ObjectHideFlags: 0

@@ -3610,7 +3610,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6594261852706049216}
   - component: {fileID: 3092741229942361641}
-  - component: {fileID: 2463110993359250649}
   m_Layer: 0
   m_Name: Ground Shater
   m_TagString: Untagged
@@ -3724,18 +3723,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2463110993359250649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820997742310479482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d2423da51d24e40b8c4a9bca54daf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5832979826585580823
 GameObject:
   m_ObjectHideFlags: 0

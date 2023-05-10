@@ -34,28 +34,20 @@ public class Enemyfloter : MonoBehaviour
 
         if (distance > radius)
         {
-            // Move towards the player
        
             rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Force);
-            //transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
-        /*if(transform.position.y <= 12)
-        {
-            transform.Translate(transform.position+Vector3.up*speed);
-        }*/
 
         
 
     }
 
-    //Vector3 MoveDir = Vector3.Normalize(transform.position - player.position) * -speed * Time.deltaTime;
     private void OnTriggerStay(Collider other)
     {
 
         if (other.CompareTag("Enemy"))
         {
             Vector3 directionPeer = Vector3.Normalize(transform.position - other.transform.position);
-            Debug.Log("caca");
             rb.AddForce(directionPeer * peerspeed * Time.deltaTime, ForceMode.Force);
         }
     }

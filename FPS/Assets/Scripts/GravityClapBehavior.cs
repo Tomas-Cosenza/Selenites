@@ -10,7 +10,7 @@ public class GravityClapBehavior : MonoBehaviour
     [SerializeField] private float lifeTime = 10, DMG, pull, timer, knockDuration, pulseRate;
     [SerializeField] private bool knock;
     [SerializeField] private Material areaMat;
-    private GameObject player, destroyGroundShatter;
+    private GameObject player;
     private PlayerManager pm;
     private Collider aoe;
     private float fade = .74f;
@@ -41,7 +41,8 @@ public class GravityClapBehavior : MonoBehaviour
             DOTween.To(() => fade, x => fade = x, 0f, 1f)/*.SetEase(Ease.OutQuint)*/;
             psf.enabled = true;
             aoe.enabled = true;
-            destroyGroundShatter = Instantiate(groundShatter, transform.position- new Vector3(0,3f,0), Quaternion.identity);
+            GameObject destroyGroundShatter = Instantiate(groundShatter, transform.position - new Vector3(0, 3f, 0), Quaternion.identity);
+            Destroy(destroyGroundShatter, 6);
             Invoke("DeactivateAoE", .5f);
             timer = pulseRate;
         }
@@ -57,7 +58,6 @@ public class GravityClapBehavior : MonoBehaviour
     {
 
         DOTween.To(() => fade, x => fade = x, .74f, 1f)/*.SetEase(Ease.OutQuint)*/;
-        Destroy(destroyGroundShatter,6);
         psf.enabled = false;
         aoe.enabled = false;
         //Sphere.SetActive(false);

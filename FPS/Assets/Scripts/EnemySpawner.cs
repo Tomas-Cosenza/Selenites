@@ -5,16 +5,16 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    [SerializeField] private GameObject[] enemySpawn;
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int maxEnemies;
+    public GameObject[] enemySpawn;
     public int enemiesAlive;
     public int enemyIndex;
     public EnemySpawner enemySpawner;
 
 
-    private void Start()
+    private void awake()
     {
         enemySpawner = GetComponent<EnemySpawner>();
     }
@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject spawnPoint = enemySpawn[Random.Range(0, enemySpawn.Length)];
             GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position+spawnOffset, Quaternion.identity);
             enemySpawned.GetComponent<EnemyHurt>().es = enemySpawner;
+            //enemySpawned.GetComponent<EnemyTeleporter>().es = enemySpawner;
             enemiesAlive++;
 
         }

@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Enemyspawner
   - Beacon
+  - SpawnPoint
+  - Teleporter
   layers:
   - Default
   - TransparentFX
