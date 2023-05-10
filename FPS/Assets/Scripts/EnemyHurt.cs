@@ -25,7 +25,7 @@ public class EnemyHurt : MonoBehaviour
         {
             alive = false;
             es.enemiesAlive--;
-            Destroy(gameObject);
+            //Destroy(gameObject);
             if (em != null)
             {
                 em.alive = false;
