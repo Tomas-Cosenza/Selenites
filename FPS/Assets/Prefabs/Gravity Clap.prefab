@@ -10395,6 +10395,7 @@ MonoBehaviour:
   pulseRate: 3
   knock: 1
   areaMat: {fileID: 2100000, guid: 0618d366ed8e5094b81ac498e2b04d26, type: 2}
+  Light: {fileID: 5976502735690683787}
 --- !u!135 &5977719474722340967
 SphereCollider:
   m_ObjectHideFlags: 0

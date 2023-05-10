@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float maxHealth, health = 100f;
     [SerializeField] private Slider slider, sliderBG;
     [SerializeField] private GameManager gm;
-    [SerializeField] private CanvasGroup hurtImage;
+    [SerializeField] private CanvasGroup hurtImage, healImage;
     public CharacterController controller;
 
     public void Hit(float damage,bool knock , float knockback, float knockDuration, Vector3 knockPos)
@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void Heal(float heal) 
     {
-        hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
+        healImage.DOFade(.5f, .3f).onComplete = () => healImage.DOFade(0, 1f);
        
         health += heal;
         health = Mathf.Clamp(health, 0, maxHealth);

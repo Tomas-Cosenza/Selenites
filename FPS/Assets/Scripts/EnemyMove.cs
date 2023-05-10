@@ -10,6 +10,7 @@ public class EnemyMove : MonoBehaviour
 
     public GameObject player;
     public GameManager gm;
+    public bool alive = true;
     //public Animator zombieanimator;
 
 
@@ -22,7 +23,11 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<NavMeshAgent>().destination = player.transform.position;
+        if (alive)
+        {
+            GetComponent<NavMeshAgent>().destination = player.transform.position;
+
+        }
 
         /*if (GetComponent<NavMeshAgent>().velocity.magnitude > 1)
         {

@@ -10,6 +10,7 @@ public class GravityClapBehavior : MonoBehaviour
     [SerializeField] private float lifeTime = 10, DMG, pull, timer, knockDuration, pulseRate;
     [SerializeField] private bool knock;
     [SerializeField] private Material areaMat;
+    [SerializeField] private Light Light;
     private GameObject player;
     private PlayerManager pm;
     private Collider aoe;
@@ -38,6 +39,7 @@ public class GravityClapBehavior : MonoBehaviour
         }
         if (timer <= 0)
         {
+            Light.DOIntensity(725, .5f);
             DOTween.To(() => fade, x => fade = x, 0f, 1f)/*.SetEase(Ease.OutQuint)*/;
             psf.enabled = true;
             aoe.enabled = true;
@@ -57,6 +59,7 @@ public class GravityClapBehavior : MonoBehaviour
     private void DeactivateAoE()
     {
 
+        Light.DOIntensity(100, .5f);
         DOTween.To(() => fade, x => fade = x, .74f, 1f)/*.SetEase(Ease.OutQuint)*/;
         psf.enabled = false;
         aoe.enabled = false;

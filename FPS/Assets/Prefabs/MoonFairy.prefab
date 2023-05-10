@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc823adf33045f34cb2e6d1cdc189db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 33
+  speed: 100
   radius: 10.07
   height: 9
   lift: 12
@@ -223,7 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 25
   armor: 0
+  anim: {fileID: 0}
   es: {fileID: 0}
+  alive: 1
 --- !u!54 &4243277726532662212
 Rigidbody:
   m_ObjectHideFlags: 0

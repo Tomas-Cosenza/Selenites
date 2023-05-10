@@ -7,6 +7,7 @@ public class SpawnFollow : MonoBehaviour
     [SerializeField] private Transform player, edgeL, edgeR, edgeT, edgeB;
     [SerializeField] private GameObject spawnCenter;
     [SerializeField] private float H, V;
+    [SerializeField] private bool flyingEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,18 @@ public class SpawnFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        H = player.position.x;
-        H = Mathf.Clamp(H, edgeL.position.x, edgeR.position.x);
-        V = player.position.z;
-        V = Mathf.Clamp(V, edgeB.position.z, edgeT.position.z);
+        if (flyingEnemy)
+        {
+            H = player.position.x;
+            H = Mathf.Clamp(H, edgeL.position.x, edgeR.position.x);
+            V = player.position.z;
+            V = Mathf.Clamp(V, edgeB.position.z, edgeT.position.z);
 
-        spawnCenter.transform.position = new Vector3(H, transform.position.y,V);
+            spawnCenter.transform.position = new Vector3(H, transform.position.y, V);
+        }
+        else
+        {
+            spawnCenter.transform.position = player.position;
+        }
     }
 }
