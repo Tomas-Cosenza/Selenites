@@ -7,12 +7,12 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainCam, testEmpty;
     [SerializeField] private Camera cam;
-    [SerializeField] private float range, zoom, DMG, zoomedSensitivity;
+    [SerializeField] private float range, fireRate, zoom, DMG, zoomedSensitivity;
     [SerializeField] private Animator anim;
-    [SerializeField] private ParticleSystem spread, hitConfirm;
+    [SerializeField] private ParticleSystem /*spread,*/ hitConfirm;
     [SerializeField] private GameObject cameraOffset;
     [SerializeField] private MouseLook ml;
-    private float sensitivity = 700, cameraOffsetX = 4.8f, unZoomedSensitivity;
+    private float sensitivity = 700, cameraOffsetX = 4.8f, unZoomedSensitivity, timer;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +28,13 @@ public class WeaponManager : MonoBehaviour
 
         ml.mouseSensitivity = sensitivity;
         cameraOffset.transform.localRotation = Quaternion.Euler(new Vector3(cameraOffsetX, 0, 0));
+        timer -= Time.deltaTime;
 
         if (anim.GetBool("isFiring"))
         {
             anim.SetBool("isFiring", false);
         }
-        if(Input.GetButtonDown("Fire1")) 
+        if(Input.GetButtonDown("Fire1") && timer <= 0) 
         {
             Shoot();
         }
@@ -56,8 +57,9 @@ public class WeaponManager : MonoBehaviour
     private void Shoot()
     {
         anim.SetBool("isFiring", true);
+        timer = fireRate;
 
-        spread.Play();
+        /*spread.Play();*/
 
         RaycastHit hit;
 

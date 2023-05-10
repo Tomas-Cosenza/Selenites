@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private float maxHealth, health = 100f, damage = 20f;
+    [SerializeField] private float maxHealth, health = 100f;
     [SerializeField] private Slider slider, sliderBG;
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage;
