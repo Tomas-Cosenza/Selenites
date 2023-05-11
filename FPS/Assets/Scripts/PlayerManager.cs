@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float maxHealth, health = 100f;
-    [SerializeField] private Slider slider, sliderBG;
+    [SerializeField] private Slider slider, sliderBG, slider2, sliderBG2;
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage, healImage;
     public CharacterController controller;
@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
         float actualHealth = Mathf.InverseLerp(0, 100, health);
         slider.DOValue(actualHealth, 0.2f);
         sliderBG.DOValue(actualHealth, 0.5f);
+        slider2.DOValue(actualHealth, 0.2f);
+        sliderBG2.DOValue(actualHealth, 0.5f);
 
         if (knock)
         {
@@ -44,6 +46,8 @@ public class PlayerManager : MonoBehaviour
         float actualHealth = Mathf.InverseLerp(0, 100, health);
         slider.DOValue(actualHealth, 0.2f);
         sliderBG.DOValue(actualHealth, 0.5f);
+        slider2.DOValue(actualHealth, 0.2f);
+        sliderBG2.DOValue(actualHealth, 0.5f);
     }
 
 

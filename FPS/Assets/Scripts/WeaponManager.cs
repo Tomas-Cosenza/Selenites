@@ -10,9 +10,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private float range, fireRate, zoom, DMG, zoomedSensitivity, aimSpeed, aimAnimProgress;
     [SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem /*spread,*/ hitConfirm;
-    [SerializeField] private GameObject cameraOffset;
+    [SerializeField] private GameObject cameraOffset, bullet;
     [SerializeField] private MouseLook ml;
-    [SerializeField] private Transform aimPos, restPos;
+    [SerializeField] private Transform aimPos, restPos, gunNozzle;
     private float sensitivity = 700, cameraOffsetX = 4.8f, unZoomedSensitivity, timer;
     private bool isAiming;
 
@@ -60,7 +60,6 @@ public class WeaponManager : MonoBehaviour
         {
 
             UnZoom();
-            //cameraOffset.transform.DORotate(new Vector3(4.8f,0,0), .5f);
         }
 
         RaycastHit hit;
@@ -72,7 +71,6 @@ public class WeaponManager : MonoBehaviour
     {
         anim.SetBool("isFiring", true);
         timer = fireRate;
-
         /*spread.Play();*/
 
         RaycastHit hit;
@@ -83,10 +81,20 @@ public class WeaponManager : MonoBehaviour
             EnemyHurt enemyHurt = hit.transform.GetComponent<EnemyHurt>();
             hitConfirm.transform.position = hit.point;
             hitConfirm.Play();
-            
+
             if (enemyHurt != null)
             {
                 enemyHurt.Hit(DMG);
+                GameObject bulletInstance = Instantiate(bullet, gunNozzle.position, Quaternion.identity);
+                bulletInstance.transform.DOMove(hit.point, .2f);
+                Destroy(bulletInstance, 1.5f);
+            }
+            else
+            {
+
+                GameObject bulletInstance = Instantiate(bullet, gunNozzle.position, Quaternion.identity);
+                bulletInstance.transform.DOMove(hit.point, .2f);
+                Destroy(bulletInstance, 1.5f);
             }
         }
     }
