@@ -1640,6 +1640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gm: {fileID: 0}
+  alive: 1
 --- !u!195 &8764772405380788960
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1728,7 +1729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 300
   armor: 0
+  anim: {fileID: 9123632421421741831}
   es: {fileID: 0}
+  alive: 1
 --- !u!1 &7599627658468118477
 GameObject:
   m_ObjectHideFlags: 0
@@ -6713,6 +6716,12 @@ Transform:
 --- !u!4 &8561160129538167381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6429006355218618563, guid: a9b4cc89e3408cd4693bbbc45c61ac62,
+    type: 3}
+  m_PrefabInstance: {fileID: 3456287249158949526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9123632421421741831 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a9b4cc89e3408cd4693bbbc45c61ac62,
     type: 3}
   m_PrefabInstance: {fileID: 3456287249158949526}
   m_PrefabAsset: {fileID: 0}

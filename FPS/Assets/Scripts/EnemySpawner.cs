@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int maxEnemies;
+    public float spawnRate, spawnTime;
     public GameObject[] enemySpawn;
     public int enemiesAlive;
     public int enemyIndex;
@@ -16,29 +17,35 @@ public class EnemySpawner : MonoBehaviour
 
     private void awake()
     {
+        spawnTime = spawnRate;
         enemySpawner = GetComponent<EnemySpawner>();
     }
     // Update is called once per frame
     void Update()
     {
-
+        
         if (enemiesAlive < maxEnemies)
         {
+
+            SpawnEnemies();
             
-            SpawnEnemies(maxEnemies);
         }
 
     }
-    public void SpawnEnemies(int maxEnemies)
+    public void SpawnEnemies()
     {
-        for (var x = enemiesAlive; x <= maxEnemies - 1; x++)
-        {
+        spawnTime -= Time.deltaTime*1;
+        if (spawnTime <= 0) 
+        { 
             GameObject spawnPoint = enemySpawn[Random.Range(0, enemySpawn.Length)];
-            GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position+spawnOffset, Quaternion.identity);
+            GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position + spawnOffset, Quaternion.identity);
             enemySpawned.GetComponent<EnemyHurt>().es = enemySpawner;
             //enemySpawned.GetComponent<EnemyTeleporter>().es = enemySpawner;
             enemiesAlive++;
-
+            spawnTime = spawnRate;
         }
+
     }
+
+    //for (var x = enemiesAlive; x <= maxEnemies - 1; x++)
 }

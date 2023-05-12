@@ -11,7 +11,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Transform groundCheck;
     [SerializeField] public LayerMask groundMask;
     private int jumps;
+    [SerializeField] private Animator anim;
     private Vector3 velocity;
+
+    private void Start()
+    {
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true) 
         {
             jumps = 1;
+            anim.SetBool("land", true);
         }
 
 
@@ -36,10 +42,24 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        if (Input.GetButtonDown("Jump") && jumps !=0 ) 
+        if(x != 0 || z != 0)
         {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+
+            anim.SetBool("walking", false);
+        }
+
+        if (Input.GetButtonDown("Jump") && jumps !=0 )
+        {
+            anim.SetTrigger("jump");
             Jump();
             jumps--;
+        }else
+        {
+
         }
 
     }
@@ -47,5 +67,10 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -jumpModifier * gravity);
+    }
+
+    public void Landing()
+    {
+        anim.SetBool("land", false);
     }
 }

@@ -12,7 +12,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private ParticleSystem /*spread,*/ hitConfirm;
     [SerializeField] private GameObject cameraOffset, bullet;
     [SerializeField] private MouseLook ml;
-    [SerializeField] private Transform aimPos, restPos, gunNozzle;
+    [SerializeField] private Transform aimPos, restPos, gunNozzle, bulletPos;
     private float sensitivity = 700, cameraOffsetX = 4.8f, unZoomedSensitivity, timer;
     private bool isAiming;
 
@@ -20,15 +20,15 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
         DOTween.Init();
-        sensitivity = ml.mouseSensitivity;
-        unZoomedSensitivity = ml.mouseSensitivity;
+        sensitivity = ml.sensitivity;
+        unZoomedSensitivity = ml.sensitivity;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        ml.mouseSensitivity = sensitivity;
+        ml.sensitivity = sensitivity;
         cameraOffset.transform.localRotation = Quaternion.Euler(new Vector3(cameraOffsetX, 0, 0));
         timer -= Time.deltaTime;
         if (isAiming)
@@ -71,8 +71,8 @@ public class WeaponManager : MonoBehaviour
     {
         anim.SetBool("isFiring", true);
         timer = fireRate;
-        /*spread.Play();*/
-
+        /*spread.Play();*/;
+        Vector3 camOff =  (cameraOffset.transform.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(mainCam.transform.position , cameraOffset.transform.forward, out hit, range))
@@ -96,6 +96,12 @@ public class WeaponManager : MonoBehaviour
                 bulletInstance.transform.DOMove(hit.point, .2f);
                 Destroy(bulletInstance, 1.5f);
             }
+        }
+        else 
+        {
+            GameObject bulletInstance = Instantiate(bullet, gunNozzle.position, Quaternion.identity);
+            bulletInstance.transform.DOMove(bulletPos.position, .2f);
+            Destroy(bulletInstance, 1.5f);
         }
     }
 
