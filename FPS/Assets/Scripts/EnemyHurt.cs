@@ -7,6 +7,7 @@ public class EnemyHurt : MonoBehaviour
 
     [SerializeField] private float health = 100, armor;
     [SerializeField] private Animator anim;
+    [SerializeField] private EnemyAtack ea;
     [HideInInspector] public EnemySpawner es;
     [SerializeField]private bool alive = true;
     private EnemyMove em;
@@ -15,6 +16,7 @@ public class EnemyHurt : MonoBehaviour
     {
         //anim = GetComponent<Animator>();
         em = GetComponent<EnemyMove>();
+        ea = GetComponent<EnemyAtack>();
     }
 
     public void Hit(float DMG)
@@ -29,6 +31,11 @@ public class EnemyHurt : MonoBehaviour
             if (em != null)
             {
                 em.alive = false;
+            }
+
+            if (ea != null)
+            {
+                ea.alive = false;
             }
             
             if (anim != null)

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true) 
         {
             jumps = 1;
-            anim.SetBool("land", true);
+            anim.SetBool("grounded", true);
         }
 
 
@@ -69,8 +69,4 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = Mathf.Sqrt(jumpHeight * -jumpModifier * gravity);
     }
 
-    public void Landing()
-    {
-        anim.SetBool("land", false);
-    }
 }

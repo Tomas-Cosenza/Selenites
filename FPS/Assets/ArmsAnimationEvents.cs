@@ -16,6 +16,11 @@ public class ArmsAnimationEvents : MonoBehaviour
 
     public void Landing()
     {
-        anim.SetBool("land", false);
+        anim.SetBool("landed", false);
+        anim.SetBool("grounded", false);
+    }
+    public void Landed()
+    {
+        anim.SetBool("landed", true);
     }
 }

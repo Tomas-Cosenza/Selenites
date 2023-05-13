@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 624577140136388840}
   - component: {fileID: 6467279222286611409}
   - component: {fileID: 6467279222286611414}
-  - component: {fileID: 3020231783511078253}
+  - component: {fileID: 2600021588075925219}
   - component: {fileID: 5720355763750231559}
   - component: {fileID: 2199280932394211899}
   - component: {fileID: 5283964485306242687}
@@ -709,8 +709,8 @@ MonoBehaviour:
   player: {fileID: 0}
   gm: {fileID: 0}
   alive: 1
---- !u!136 &3020231783511078253
-CapsuleCollider:
+--- !u!65 &2600021588075925219
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -719,10 +719,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 0.89
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.49, z: 0.02}
+  serializedVersion: 2
+  m_Size: {x: 0.79720294, y: 1.000004, z: 0.43877667}
+  m_Center: {x: 0.0030713878, y: 0.5032431, z: 0.012199402}
 --- !u!54 &5720355763750231559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -755,6 +754,7 @@ MonoBehaviour:
   knocback: 3
   knockDuration: 0.5
   knock: 1
+  alive: 1
 --- !u!114 &5283964485306242687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +770,7 @@ MonoBehaviour:
   health: 15
   armor: 0
   anim: {fileID: 624577140136388840}
+  ea: {fileID: 0}
   es: {fileID: 0}
   alive: 1
 --- !u!1 &6836997453953835336
