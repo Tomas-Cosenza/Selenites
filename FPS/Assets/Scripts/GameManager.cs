@@ -8,9 +8,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject endGamePanel;
-    [SerializeField] private Text roundNumber,roundsSurvived;    
-    public int maxBeacons, beaconsClaimed;    
+    [SerializeField] private Text roundNumber,roundsSurvived;
+    private GameEnd ge;
+    public int maxBeacons, beaconsClaimed;
 
+    private void Start()
+    {
+        ge = GameObject.FindGameObjectWithTag("GameEnd").GetComponent<GameEnd>();
+    }
     public void EndGame()
     {
          
@@ -37,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         Debug.Log("you won buddy");
-        Time.timeScale=0;
+        ge.EndGame();
     }
 
 }

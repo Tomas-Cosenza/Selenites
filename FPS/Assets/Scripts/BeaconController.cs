@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BeaconController : MonoBehaviour
 {
 
-    [SerializeField] private float beacontimer = 90f;
+    [SerializeField] private float beacontimer, timeToWait;
 
     [SerializeField] private Collider crashzone;
 
@@ -13,6 +14,8 @@ public class BeaconController : MonoBehaviour
 
     [SerializeField] private GameObject beaconray;
     [SerializeField] private GameManager gm;
+    [SerializeField] private Slider slider;
+    [SerializeField] private Light[] lights;
 
 
     private Transform player;
@@ -20,7 +23,9 @@ public class BeaconController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         chargezone.enabled = false;
+        beacontimer = timeToWait;
     }
 
     // Update is called once per frame
@@ -35,14 +40,17 @@ public class BeaconController : MonoBehaviour
         {
             chargezone.enabled = true;
             crashzone.enabled = false;
-
+            lights[0].intensity = 1;
+            lights[1].intensity = 1;
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            beacontimer -= 1 * Time.deltaTime;
+            //float progressBar;
+            //progressBar = Mathf.InverseLerp(0, timeToWait, beacontimer);
+            slider.value = beacontimer;
             Debug.Log(beacontimer);
 
             if (beacontimer <= 0)
@@ -50,7 +58,13 @@ public class BeaconController : MonoBehaviour
                 gm.BeaconCounter();
                 chargezone.enabled = false;
                 crashzone.enabled = false;
-                // Faltaria buscar en el Gm la funcion que suma beacons y haga ++
+            }
+            else
+            {
+
+                slider.value = beacontimer;
+                Debug.Log(beacontimer);
+                beacontimer -= 1 * Time.deltaTime;
             }
         }
         
@@ -60,9 +74,11 @@ public class BeaconController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            beacontimer = 90;
+            beacontimer = timeToWait;
             chargezone.enabled = false;
             crashzone.enabled = true;
+            lights[0].intensity = 0;
+            lights[1].intensity = 0;
 
         }
     }
