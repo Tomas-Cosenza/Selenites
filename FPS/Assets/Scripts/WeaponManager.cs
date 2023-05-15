@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainCam, testEmpty, arms;
+    [SerializeField] private GameObject mainCam, testEmpty, arms, nozzleFlash;
     [SerializeField] private Camera cam;
     [SerializeField] private float range, fireRate, zoom, DMG, zoomedSensitivity, aimSpeed, aimAnimProgress;
     [SerializeField] private Animator anim;
-    [SerializeField] private ParticleSystem /*spread,*/ hitConfirm;
+    [SerializeField] private ParticleSystem nozzleFlashParticle, hitConfirm;
     [SerializeField] private GameObject cameraOffset, bullet;
     [SerializeField] private MouseLook ml;
     [SerializeField] private Transform aimPos, restPos, gunNozzle, bulletPos;
@@ -71,8 +71,10 @@ public class WeaponManager : MonoBehaviour
     {
         anim.SetBool("isFiring", true);
         timer = fireRate;
-        /*spread.Play();*/;
+        nozzleFlashParticle.Play();
         Vector3 camOff =  (cameraOffset.transform.forward);
+        nozzleFlash.SetActive(true);
+        Invoke("DeactivateNozzleFlash", 0.1f);
         RaycastHit hit;
 
         if (Physics.Raycast(mainCam.transform.position , cameraOffset.transform.forward, out hit, range))
@@ -120,5 +122,9 @@ public class WeaponManager : MonoBehaviour
         cam.DOFieldOfView(60, .5f);
         DOTween.To(() => sensitivity, x => sensitivity = x, unZoomedSensitivity, .5f);
         DOTween.To(() => cameraOffsetX, x => cameraOffsetX = x, 4.8f, .5f);
+    }
+    private void DeactivateNozzleFlash()
+    {
+        nozzleFlash.SetActive(false);
     }
 }
