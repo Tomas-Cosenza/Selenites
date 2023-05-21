@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private int maxEnemies;
-    public float spawnRate, spawnTime;
+    public int maxEnemies;
+    public float spawnRate, spawnTime, startspawning = 30f;
     public GameObject[] enemySpawn;
     public int enemiesAlive;
     public int enemyIndex;
@@ -17,14 +17,20 @@ public class EnemySpawner : MonoBehaviour
 
     private void awake()
     {
+      
         spawnTime = spawnRate;
         enemySpawner = GetComponent<EnemySpawner>();
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if (enemiesAlive < maxEnemies)
+
+        if (startspawning > 0)
+        {
+            startspawning -= Time.deltaTime;
+        }
+
+        if (enemiesAlive < maxEnemies && startspawning <= 0)
         {
 
             SpawnEnemies();

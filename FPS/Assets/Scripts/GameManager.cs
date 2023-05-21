@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject endGamePanel;
+    [SerializeField] private EnemySpawner[] es;
     [SerializeField] private Text roundNumber,roundsSurvived;
     private GameEnd ge;
     public int maxBeacons, beaconsClaimed;
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour
         {
             Win();
         }
+    }
+
+    public void UpDifficulty()
+    {
+        es[0].maxEnemies += 4;
+        es[1].maxEnemies += 1;
+        es[2].maxEnemies += 1;
     }
 
     public void Win()
