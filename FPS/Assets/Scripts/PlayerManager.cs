@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private float maxHealth, health = 100f;
-    [SerializeField] private Slider slider, sliderBG, slider2, sliderBG2;
+    [SerializeField] private float maxHealth, health = 100f, oxygenLevel;
+    [SerializeField] private Slider slider, sliderBG, slider2, sliderBG2, oxygenGauge, oxygenGauge2;
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage, healImage;
     public CharacterController controller;
+
+
 
     public void Hit(float damage,bool knock , float knockback, float knockDuration, Vector3 knockPos)
     {
@@ -56,7 +58,17 @@ public class PlayerManager : MonoBehaviour
     {
         DOTween.Init();
     }
-    
+    private void Update()
+    {
+        oxygenLevel -= Time.deltaTime;
+        if(oxygenLevel <= 0)
+        {
+            Hit(444, false, 0, 0, Vector3.zero);
+        }
+
+        oxygenGauge.value = oxygenLevel;
+        oxygenGauge2.value = oxygenLevel;
+    }
 
 
 
