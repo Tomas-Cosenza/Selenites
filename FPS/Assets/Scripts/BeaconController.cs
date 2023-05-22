@@ -12,8 +12,7 @@ public class BeaconController : MonoBehaviour
 
     [SerializeField] private Collider chargezone;
 
-    [SerializeField] private GameObject beaconray;
-    [SerializeField] private GameObject Chargezonelimits;
+    [SerializeField] private GameObject beaconray, shipScreen, Chargezonelimits;
     [SerializeField] private GameManager gm;
     [SerializeField] private Slider slider;
     [SerializeField] private Light[] lights;
@@ -61,9 +60,13 @@ public class BeaconController : MonoBehaviour
             {
                 gm.BeaconCounter();
                 gm.UpDifficulty();
+                shipScreen.SetActive(false);
+                beaconray.SetActive(false);
                 chargezone.enabled = false;
                 crashzone.enabled = false;
                 Chargezonelimits.SetActive(false);
+                lights[0].intensity = 0;
+                lights[1].intensity = 0;
 
             }
             else
@@ -72,6 +75,8 @@ public class BeaconController : MonoBehaviour
                 slider.value = beacontimer;
                 Debug.Log(beacontimer);
                 beacontimer -= 1 * Time.deltaTime;
+
+                shipScreen.SetActive(true);
             }
         }
         
@@ -85,6 +90,7 @@ public class BeaconController : MonoBehaviour
             chargezone.enabled = false;
             crashzone.enabled = true;
             Chargezonelimits.SetActive(false);
+            shipScreen.SetActive(false);
             lights[0].intensity = 0;
             lights[1].intensity = 0;
 

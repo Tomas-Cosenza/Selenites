@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainCam, testEmpty, arms, nozzleFlash;
+    [SerializeField] private Image crossHair;
     [SerializeField] private Camera cam;
     [SerializeField] private float range, fireRate, zoom, DMG, zoomedSensitivity, aimSpeed, aimAnimProgress;
     [SerializeField] private Animator anim;
@@ -112,6 +114,7 @@ public class WeaponManager : MonoBehaviour
         isAiming = true;
         anim.SetBool("isAiming", true);
         cam.DOFieldOfView(zoom, .5f);
+        crossHair.DOFade(0, .5f);
         DOTween.To(() => sensitivity, x => sensitivity = x, zoomedSensitivity, .5f);
         DOTween.To(() => cameraOffsetX, x => cameraOffsetX = x, 2.92f, .5f);
     }
@@ -120,6 +123,7 @@ public class WeaponManager : MonoBehaviour
         isAiming = false;
         anim.SetBool("isAiming", false);
         cam.DOFieldOfView(60, .5f);
+        crossHair.DOFade(1, .5f);
         DOTween.To(() => sensitivity, x => sensitivity = x, unZoomedSensitivity, .5f);
         DOTween.To(() => cameraOffsetX, x => cameraOffsetX = x, 4.8f, .5f);
     }

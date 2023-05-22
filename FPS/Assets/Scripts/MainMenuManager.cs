@@ -9,6 +9,11 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    
+    public void MoonLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
     public void ExitGame()
     {
         Application.Quit();

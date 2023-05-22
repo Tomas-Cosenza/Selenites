@@ -13,7 +13,6 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         DOTween.Init();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

@@ -96,7 +96,8 @@ MonoBehaviour:
   timeToWait: 15
   crashzone: {fileID: 2810978545606759466}
   chargezone: {fileID: 2810978545606759458}
-  beaconray: {fileID: 0}
+  beaconray: {fileID: 6424599566511284735}
+  shipScreen: {fileID: 3512538370157401893}
   Chargezonelimits: {fileID: 2810978546465227727}
   gm: {fileID: 0}
   slider: {fileID: 3512538371134332499}
@@ -359,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3512538370157401892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -513,7 +514,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -871,7 +872,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1060,13 +1061,13 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1907052608022466423, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
+  - {fileID: 2100000, guid: 603178e23c561004d8123bfa8d315edc, type: 2}
   - {fileID: -8946807641482921812, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
-  - {fileID: 7195120053885087988, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
+  - {fileID: 0}
   - {fileID: -7255647052170860681, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
-  - {fileID: 119170649765597214, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
-  - {fileID: -2196632111014789890, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
-  - {fileID: 1498251818297929618, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1175,6 +1176,12 @@ PrefabInstance:
 --- !u!4 &5936610624459569989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7123596065583263665, guid: ce26cf5aafcc4db4f83337998849cb8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3512538370956662004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6424599566511284735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7608770330899100939, guid: ce26cf5aafcc4db4f83337998849cb8a,
     type: 3}
   m_PrefabInstance: {fileID: 3512538370956662004}
   m_PrefabAsset: {fileID: 0}
