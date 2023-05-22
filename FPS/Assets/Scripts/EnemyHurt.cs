@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyHurt : MonoBehaviour
 {
 
-    [SerializeField] private float health = 100, armor;
+    [SerializeField] private float health = 100, armor, explotionStrenght = 100, explotionRadius=50;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject deathModel;
     [SerializeField] private EnemyAtack ea;
     [HideInInspector] public EnemySpawner es;
     [SerializeField]private bool alive = true;
@@ -37,7 +38,20 @@ public class EnemyHurt : MonoBehaviour
             {
                 ea.alive = false;
             }
-            
+
+            if (deathModel != null)
+            {
+                GameObject corpse = Instantiate(deathModel, transform.position, transform.rotation);
+                Rigidbody[] deathRB = corpse.GetComponentsInChildren<Rigidbody>();
+                foreach (Rigidbody rb in deathRB)
+                {
+                    rb.AddExplosionForce(explotionStrenght, transform.position+transform.forward*1.5f, explotionRadius);
+                    Debug.Log(rb.name);
+                }
+                Destroy(corpse, 5);
+            }
+
+
             if (anim != null)
             {
                 anim.SetBool("dead", true);

@@ -7,8 +7,9 @@ public class Projectile : MonoBehaviour
 {
 
     [SerializeField] private Rotator rotator;
-    [SerializeField] private MeshRenderer mr;
-    [SerializeField] private SphereCollider sc;
+    [SerializeField] private MeshRenderer starMeshRenderer, electricityMeshRenderer;
+    [SerializeField] private SphereCollider sphereCollider;
+    [SerializeField] private ParticleSystem starTrail, starExplotion;
     [SerializeField] private float speed, DMG, knocback, knockDuration, lifetime = 5;
     [SerializeField] private bool knock;
     private GameObject player;
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         pM = player.GetComponent<PlayerManager>();
-        sc = GetComponent<SphereCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
 
@@ -29,11 +30,14 @@ public class Projectile : MonoBehaviour
         lifetime -= 1* Time.deltaTime;
         if (lifetime <= 0)
         {
-            mr.enabled = false;
-            sc.enabled = false;
+            starMeshRenderer.enabled = false;
+            electricityMeshRenderer.enabled = false;
+            sphereCollider.enabled = false;
+            starTrail.Stop();
+            starExplotion.Play();
             rotator.RotSpeed = 0;
             speed = 0;
-            Invoke("DestroyProjectile", 1);
+            Invoke("DestroyProjectile", 1.2f);
         }
     }
 
@@ -41,19 +45,25 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sc.enabled = false;
-            mr.enabled = false;
-            Destroy(gameObject);
+            sphereCollider.enabled = false;
+            starMeshRenderer.enabled = false;
+            electricityMeshRenderer.enabled = false;
+            starTrail.Stop();
+            starExplotion.Play();
+            Destroy(gameObject,1);
             pM.Hit(DMG, knock, knocback, knockDuration, transform.position);
 
         }
         if (!other.CompareTag("Enemy") && !other.CompareTag("Enemyspawner") && !other.CompareTag("Beacon"))
         {
-            mr.enabled = false;
-            sc.enabled = false;
+            starMeshRenderer.enabled = false;
+            electricityMeshRenderer.enabled = false;
+            sphereCollider.enabled = false;
+            starTrail.Stop();
+            starExplotion.Play();
             speed = 0;
             rotator.RotSpeed= 0;
-            Invoke("DestroyProjectile", 1f);
+            Invoke("DestroyProjectile", 1.2f);
 
         }
     }

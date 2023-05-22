@@ -1062,12 +1062,12 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 603178e23c561004d8123bfa8d315edc, type: 2}
-  - {fileID: -8946807641482921812, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
+  - {fileID: 2100000, guid: 8dc97e31a88fd364998354818c66cc20, type: 2}
   - {fileID: 0}
   - {fileID: -7255647052170860681, guid: 837913fb26fd78f46ab23055b18dfa02, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 3e1ff0a6446dd6d4ebe8cc306a19bb05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1171,6 +1171,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beacon
       objectReference: {fileID: 0}
+    - target: {fileID: 8257125881498703070, guid: ce26cf5aafcc4db4f83337998849cb8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e1ff0a6446dd6d4ebe8cc306a19bb05, type: 2}
+    - target: {fileID: 8257125881498703070, guid: ce26cf5aafcc4db4f83337998849cb8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1df3afd179ba1214a82108c95efb4708, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce26cf5aafcc4db4f83337998849cb8a, type: 3}
 --- !u!4 &5936610624459569989 stripped

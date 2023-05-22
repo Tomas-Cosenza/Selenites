@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gravity Slap
-  m_Shader: {fileID: -6465566751694194690, guid: 4fe973c56ab50334a9a003cf731665b0,
+  m_Name: starTrail
+  m_Shader: {fileID: -6465566751694194690, guid: 89e931f9f98da49448243811a2d7ce1f,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -34,6 +34,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Alpha_2:
+        m_Texture: {fileID: 2800000, guid: b3c8ad15f3e2d294d8cfad5d0ee8547d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: 5708a45879252a34cafb1c51b0678de0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -43,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _lightning:
-        m_Texture: {fileID: 2800000, guid: 5d7e7805f78a662429544f435ca3aa43, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9322a25d5b9802e4384f0598a9d265f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _lightning_1:
-        m_Texture: {fileID: 2800000, guid: 8718fbb45267451459b1c2d59994bdb7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ba81cc8da0da604ba3b34ca89a6d86f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -67,8 +71,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: -1
     - _Smoke_Scroll_Speed: 0.5
-    - _Smoke_fade: 0.43
+    - _Smoke_fade: 0
     m_Colors:
-    - _Emession: {r: 0, g: 106.78289, b: 4.68346, a: 0}
-    - _Smoke_color: {r: 1.8922322, g: 9.849155, b: 0, a: 0}
+    - _Emession: {r: 0, g: 191.74902, b: 103.42565, a: 0}
+    - _Smoke_color: {r: 0, g: 18.164822, b: 3.9041057, a: 0}
+    - _tiling: {r: 0.2, g: 0.06, b: 0, a: 0}
   m_BuildTextureStacks: []

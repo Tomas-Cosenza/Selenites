@@ -2460,11 +2460,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -809828480950454423, guid: 48d9f0baeafeee341819ec0b19225dd2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 603178e23c561004d8123bfa8d315edc, type: 2}
     - target: {fileID: 919132149155446097, guid: 48d9f0baeafeee341819ec0b19225dd2,
         type: 3}
       propertyPath: m_Name
       value: moonman Head
       objectReference: {fileID: 0}
+    - target: {fileID: 8003028576119023140, guid: 48d9f0baeafeee341819ec0b19225dd2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e5a3cd9dd0dc7848a7b0fda5d7f547b, type: 2}
+    - target: {fileID: 8153101253863224186, guid: 48d9f0baeafeee341819ec0b19225dd2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7211a592fb5d08c40acfe40432b31748, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d9f0baeafeee341819ec0b19225dd2, type: 3}
 --- !u!4 &573959170767667409 stripped
@@ -4306,6 +4321,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 43981c00225729d419e92ffb37cb0308, type: 2}
+    - target: {fileID: 8417361359673230750, guid: a9b4cc89e3408cd4693bbbc45c61ac62,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7211a592fb5d08c40acfe40432b31748, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9b4cc89e3408cd4693bbbc45c61ac62, type: 3}
 --- !u!1 &476372170639378390 stripped

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     private void ActivateControl()
     {
         ms.enabled = true;
-        pm.enabled = true;
+        //pm.enabled = true;
         wm.enabled = true;
     }
 
