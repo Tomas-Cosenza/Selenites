@@ -1730,6 +1730,7 @@ MonoBehaviour:
   health: 300
   armor: 0
   anim: {fileID: 9123632421421741831}
+  ea: {fileID: 0}
   es: {fileID: 0}
   alive: 1
 --- !u!1 &7599627658468118477
@@ -2106,7 +2107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3056647763705765386
 Transform:
   m_ObjectHideFlags: 0

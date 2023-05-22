@@ -97,6 +97,7 @@ MonoBehaviour:
   crashzone: {fileID: 2810978545606759466}
   chargezone: {fileID: 2810978545606759458}
   beaconray: {fileID: 0}
+  Chargezonelimits: {fileID: 2810978546465227727}
   gm: {fileID: 0}
   slider: {fileID: 3512538371134332499}
   lights:
