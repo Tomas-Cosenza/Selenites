@@ -13,6 +13,7 @@ public class BeaconController : MonoBehaviour
     [SerializeField] private Collider chargezone;
 
     [SerializeField] private GameObject beaconray;
+    [SerializeField] private GameObject Chargezonelimits;
     [SerializeField] private GameManager gm;
     [SerializeField] private Slider slider;
     [SerializeField] private Light[] lights;
@@ -22,6 +23,8 @@ public class BeaconController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Chargezonelimits.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         chargezone.enabled = false;
@@ -40,6 +43,7 @@ public class BeaconController : MonoBehaviour
         {
             chargezone.enabled = true;
             crashzone.enabled = false;
+            Chargezonelimits.SetActive(true);
             lights[0].intensity = 1;
             lights[1].intensity = 1;
         }
@@ -56,8 +60,11 @@ public class BeaconController : MonoBehaviour
             if (beacontimer <= 0)
             {
                 gm.BeaconCounter();
+                gm.UpDifficulty();
                 chargezone.enabled = false;
                 crashzone.enabled = false;
+                Chargezonelimits.SetActive(false);
+
             }
             else
             {
@@ -77,6 +84,7 @@ public class BeaconController : MonoBehaviour
             beacontimer = timeToWait;
             chargezone.enabled = false;
             crashzone.enabled = true;
+            Chargezonelimits.SetActive(false);
             lights[0].intensity = 0;
             lights[1].intensity = 0;
 
