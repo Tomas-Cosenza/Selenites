@@ -12,6 +12,7 @@ TagManager:
   - Teleporter
   - GameEnd
   - GameManager
+  - GameMusic
   layers:
   - Default
   - TransparentFX

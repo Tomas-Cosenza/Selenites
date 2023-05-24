@@ -8,13 +8,15 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endGamePanel;
+    [SerializeField] private GameObject endGamePanel, retrieveDataText;
     [SerializeField] private MouseLook ms;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private WeaponManager wm;
     [SerializeField] private EnemySpawner[] es;
     [SerializeField] private Text roundNumber,roundsSurvived;
+    //[SerializeField] private TextMesh retrieveDataText;
     [SerializeField] private Image crossHair, fadeIn;
+    [SerializeField] private Image[] beacons;
     private GameEnd ge;
     public int maxBeacons, beaconsClaimed;
 
@@ -42,9 +44,11 @@ public class GameManager : MonoBehaviour
 
     public void BeaconCounter()
     {
+        beacons[beaconsClaimed].DOFade(255, 1f);
         beaconsClaimed++;
         if(beaconsClaimed >= maxBeacons)
         {
+            retrieveDataText.SetActive(true);
             Win();
         }
     }
