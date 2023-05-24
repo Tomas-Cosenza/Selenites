@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endGamePanel, retrieveDataText;
+    [SerializeField] private GameObject endGamePanel, retrieveDataText, menuMusic;
     [SerializeField] private MouseLook ms;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private WeaponManager wm;
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
         DOTween.Init();
         ge = GameObject.FindGameObjectWithTag("GameEnd").GetComponent<GameEnd>();
         fadeIn.DOFade(0, 3f).SetEase(Ease.InCubic).onComplete = () => ActivateControl();
+        menuMusic = GameObject.FindGameObjectWithTag("GameMusic");
+        Destroy(menuMusic);
     }
     public void EndGame()
     {

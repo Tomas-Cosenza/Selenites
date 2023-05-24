@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
     private void Awake()
     {
-        GameObject[] musicObject = GameObject.FindGameObjectsWithTag("GameMusic"); 
-        if(musicObject.Length > 1)
+        GameObject[] musicObject = GameObject.FindGameObjectsWithTag("GameMusic");
+
+        DontDestroyOnLoad(gameObject);
+
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 }
