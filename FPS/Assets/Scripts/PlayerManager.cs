@@ -11,7 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage, healImage;
     public CharacterController controller;
-
+    public AudioSource damagetaken;
+    //public AudioClip damagetakenclip;
 
 
     public void Hit(float damage,bool knock , float knockback, float knockDuration, Vector3 knockPos)
@@ -19,6 +20,8 @@ public class PlayerManager : MonoBehaviour
         health -= damage;
         hurtImage.DOFade(.5f, .3f).onComplete = () => hurtImage.DOFade(0, 1f);
         float actualHealth = Mathf.InverseLerp(0, 100, health);
+        //damagetaken.clip = damagetakenclip;
+        damagetaken.Play();
         slider.DOValue(actualHealth, 0.2f);
         sliderBG.DOValue(actualHealth, 0.5f);
         slider2.DOValue(actualHealth, 0.2f);

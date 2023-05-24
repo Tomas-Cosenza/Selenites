@@ -10,6 +10,8 @@ public class GravitySlapBehavior : MonoBehaviour
     [SerializeField] private float lifeTime = 10,DMG,knockback, knockDuration;
     [SerializeField] private bool knock;
 
+    public AudioSource explode;
+    //public AudioClip explodeclip;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class GravitySlapBehavior : MonoBehaviour
         {
             pm.Hit(DMG, knock, knockback, knockDuration, transform.position);
             Instantiate(explotion, transform.position, Quaternion.identity);
+            //explode.clip= explodeclip;
+            explode.Play();
             Destroy(gameObject);
         }
     }

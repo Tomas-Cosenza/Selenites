@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class EnemyHurt : MonoBehaviour
     [HideInInspector] public EnemySpawner es;
     [SerializeField]private bool alive = true;
     private EnemyMove em;
+    public AudioSource death;
 
     private void Awake()
     {
