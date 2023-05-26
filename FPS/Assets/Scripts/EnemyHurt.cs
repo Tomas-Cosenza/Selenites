@@ -13,7 +13,7 @@ public class EnemyHurt : MonoBehaviour
     [HideInInspector] public EnemySpawner es;
     [SerializeField]private bool alive = true;
     private EnemyMove em;
-    public AudioSource death;
+    //public AudioSource death;
 
     private void Awake()
     {

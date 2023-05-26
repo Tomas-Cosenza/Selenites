@@ -11,7 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private CanvasGroup hurtImage, healImage;
     public CharacterController controller;
-    public AudioSource damagetaken;
+    public AudioSource damagetaken, playerdeath;
+    public bool alive = true;
     //public AudioClip damagetakenclip;
 
 
@@ -37,6 +38,8 @@ public class PlayerManager : MonoBehaviour
 
         if (health <= 0)
         {
+            alive= false;
+            playerdeath.Play();
             hurtImage.DOFade(.5f, .5f).onComplete = ()=> Time.timeScale = 0;
             gm.EndGame();
             //Time.timeScale = 0;

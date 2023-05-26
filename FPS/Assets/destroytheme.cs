@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPack : MonoBehaviour
+public class destroytheme : MonoBehaviour
 {
-    [SerializeField] private float heal;
     private PlayerManager pm;
     private GameObject player;
-    public AudioSource audioheal;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +16,9 @@ public class HealthPack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (pm.alive == false)
         {
-            audioheal.Play();
             Destroy(gameObject);
-            pm.Heal(heal);
-
         }
     }
 }

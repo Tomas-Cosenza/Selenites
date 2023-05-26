@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heal: 25
+  audioheal: {fileID: 0}
 --- !u!65 &1197103120430003647
 BoxCollider:
   m_ObjectHideFlags: 0

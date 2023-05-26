@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumps;
     [SerializeField] private Animator anim;
     private Vector3 velocity;
-
+    public AudioSource audiojump;
     private void Start()
     {
     }
@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jumps !=0 )
         {
+            audiojump.Play();
             anim.SetTrigger("jump");
             Jump();
             jumps--;
