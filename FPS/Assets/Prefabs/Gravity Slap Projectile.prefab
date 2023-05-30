@@ -5145,7 +5145,7 @@ MonoBehaviour:
   explotion: {fileID: 8590229984856920198, guid: f4b0f0ae449926d44ad26ba93d2f9317,
     type: 3}
   lifeTime: 10
-  DMG: 10
+  DMG: 5
   knockback: 3
   knockDuration: 0.5
   knock: 1

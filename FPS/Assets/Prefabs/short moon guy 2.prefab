@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a967a4026a914286879789759c525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DMG: 5
+  DMG: 3
   knocback: 3
   knockDuration: 0.5
   knock: 1
@@ -660,7 +660,6 @@ MonoBehaviour:
   ea: {fileID: 0}
   es: {fileID: 0}
   alive: 1
-  death: {fileID: 0}
 --- !u!114 &4969129846506675634
 MonoBehaviour:
   m_ObjectHideFlags: 0

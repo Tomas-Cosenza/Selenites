@@ -44,7 +44,6 @@ public class BeaconController : MonoBehaviour
             crashzone.enabled = false;
             Chargezonelimits.SetActive(true);
             lights[0].intensity = 1;
-            lights[1].intensity = 1;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -66,7 +65,6 @@ public class BeaconController : MonoBehaviour
                 crashzone.enabled = false;
                 Chargezonelimits.SetActive(false);
                 lights[0].intensity = 0;
-                lights[1].intensity = 0;
 
             }
             else
@@ -92,7 +90,6 @@ public class BeaconController : MonoBehaviour
             Chargezonelimits.SetActive(false);
             shipScreen.SetActive(false);
             lights[0].intensity = 0;
-            lights[1].intensity = 0;
 
         }
     }

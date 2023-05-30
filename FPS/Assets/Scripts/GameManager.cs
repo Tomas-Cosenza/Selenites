@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endGamePanel, retrieveDataText, menuMusic;
+    [SerializeField] private GameObject endGamePanel, retrieveDataText, menuMusic, pausePanel;
     [SerializeField] private MouseLook ms;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private WeaponManager wm;
@@ -17,17 +17,34 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private TextMesh retrieveDataText;
     [SerializeField] private Image crossHair, fadeIn;
     [SerializeField] private Image[] beacons;
+    [SerializeField] private bool isGamePaused = false;
     private GameEnd ge;
     public int maxBeacons, beaconsClaimed;
 
     private void Start()
     {
+        isGamePaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         DOTween.Init();
         ge = GameObject.FindGameObjectWithTag("GameEnd").GetComponent<GameEnd>();
         fadeIn.DOFade(0, 3f).SetEase(Ease.InCubic).onComplete = () => ActivateControl();
         menuMusic = GameObject.FindGameObjectWithTag("GameMusic");
         Destroy(menuMusic);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
     public void EndGame()
     {
@@ -73,6 +90,23 @@ public class GameManager : MonoBehaviour
         ms.enabled = true;
         //pm.enabled = true;
         wm.enabled = true;
+    }
+
+    public void Pause()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        pausePanel.SetActive(true);
+        Time.timeScale = 0;
+        isGamePaused = true;
+    }
+
+    public void Resume()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
+        isGamePaused = false;
     }
 
 }
